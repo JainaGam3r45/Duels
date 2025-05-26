@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
+import org.bukkit.event.entity.PotionSplashEvent;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -59,5 +60,11 @@ public class PotionListener implements Listener {
                 player.getInventory().removeItem(new ItemStack(Material.GLASS_BOTTLE, 1));
             }
         }, null);
+    }
+
+    @EventHandler
+    public void on(final PotionSplashEvent event) {
+        event.getAffectedEntities().removeIf(entity -> entity instanceof Player &&
+            plugin.getSpectateManager().isSpectating((Player) entity));
     }
 }
