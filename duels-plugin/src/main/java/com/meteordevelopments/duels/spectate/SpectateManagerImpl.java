@@ -395,5 +395,16 @@ public class SpectateManagerImpl implements Loadable, SpectateManager {
                 }
             }
         }
+
+        @EventHandler
+        public void on(final PlayerChangedWorldEvent event) {
+            final Player player = event.getPlayer();
+            final SpectatorImpl spectator = get(player);
+
+            // Re-apply SPECTATOR gamemode if config requires it
+            if (spectator != null && config.isSpecUseSpectatorGamemode()) {
+                player.setGameMode(GameMode.SPECTATOR);
+            }
+        }
     }
 }
