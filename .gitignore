@@ -1,0 +1,43 @@
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+gradle-wrapper.jar
+gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+
+# Maven
+target/
+
+# multiplatform
+out/
+
+# IntelliJ / IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and temp
+*.log
+*.tmp
+
+# Lombok (delomboked sources)
+generated-src/
+
+# Adventure / MiniMessage cache (si aplica)
+cache/
+
+# JARs locales y libs empaquetadas
+libs/*.jar
+
+# Certificados, credenciales
+*.jks
