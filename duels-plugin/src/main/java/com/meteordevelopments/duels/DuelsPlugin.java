@@ -124,6 +124,8 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
         Log.addSource(this);
         JsonUtil.registerDeserializer(ItemData.class, ItemDataDeserializer.class);
 
+        sendBanner();
+
         long start = System.currentTimeMillis();
 
         loadLogManager();
@@ -394,6 +396,24 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
 
     public static void sendMessage(String message) {
         Bukkit.getConsoleSender().sendMessage(getPrefix() + CC.translate(message));
+    }
+
+    private void sendBanner(){
+        String[] banner = {
+                "╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗",
+                "║  ██████╗ ██╗   ██╗███████╗██╗     ███████╗     ██████╗ ██████╗ ████████╗██╗███╗   ███╗██╗███████╗███████╗██████╗  ║",
+                "║  ██╔══██╗██║   ██║██╔════╝██║     ██╔════╝    ██╔═══██╗██╔══██╗╚══██╔══╝██║████╗ ████║██║██╔════╝██╔════╝██╔══██╗ ║",
+                "║  ██║  ██║██║   ██║█████╗  ██║     ███████╗    ██║   ██║██████╔╝   ██║   ██║██╔████╔██║██║███████╗█████╗  ██║  ██║ ║",
+                "║  ██║  ██║██║   ██║██╔══╝  ██║     ╚════██║    ██║   ██║██╔═══╝    ██║   ██║██║╚██╔╝██║██║╚════██║██╔══╝  ██║  ██║ ║",
+                "║  ██████╔╝╚██████╔╝███████╗███████╗███████║    ╚██████╔╝██║        ██║   ██║██║ ╚═╝ ██║██║███████║███████╗██████╔╝ ║",
+                "║  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝     ╚═════╝ ╚═╝        ╚═╝   ╚═╝╚═╝     ╚═╝╚═╝╚══════╝╚══════╝╚═════╝  ║",
+                "╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝"
+        };
+
+        for (String lines : banner){
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&a"+ lines));
+        }
+
     }
 
     private void loadLogManager(){
